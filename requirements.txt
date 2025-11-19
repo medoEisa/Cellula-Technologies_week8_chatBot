@@ -1,0 +1,5 @@
+Python 3.11+
+
+Tavily API key in .env
+
+langchain, langchain-ollama, bs4, requests
