@@ -1,0 +1,21 @@
+Python cache
+
+pycache/
+*.pyc
+*.pyo
+
+Virtual environment
+
+venv/
+.env
+
+Logs
+
+*.log
+
+IDE files
+
+.vscode/
+.idea/
+
+.pdf/
