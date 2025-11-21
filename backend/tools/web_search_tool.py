@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from langchain_core.tools import tool
 import dotenv
 dotenv.load_dotenv()
+
 #remove boilerplate/navigation sections
 
 def clean_html_boilerplate(html: str) -> str:

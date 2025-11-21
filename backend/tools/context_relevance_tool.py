@@ -1,21 +1,24 @@
-# context_relevance_tool.py
 import json
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
 
-llm = ChatOllama(model="gpt-oss:120b-cloud")
+llm = ChatOllama(base_url="http://host.docker.internal:11434",model="gpt-oss:120b-cloud")
+
+import os
+base_dir = os.path.dirname(os.path.dirname(__file__))  # backend root
+prompt_path = os.path.join(base_dir, "prompts", "context_relevance_prompt.txt")
 
 def build_context_relevance_tool():
     """
     Tool to check if provided context is relevant to the user question.
     Accepts a single JSON string input containing both question and context.
     """
-    with open("prompts/context_relevance_prompt.txt", "r", encoding="utf-8") as f:
-        template_text = f.read()
+    with open(prompt_path, "r", encoding="utf-8") as f:
+        prompt_text = f.read()
     
-    prompt = ChatPromptTemplate.from_template(template_text)
+    prompt = ChatPromptTemplate.from_template(prompt_text)
     chain = prompt | llm | StrOutputParser()
     
     @tool

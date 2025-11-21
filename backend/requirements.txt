@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pymongo
+python-dotenv
+passlib[bcrypt]
+pyjwt
+requests
+beautifulsoup4
+langchain
+langchain-ollama
+pydantic[email]
+langchain_classic
+argon2_cffi

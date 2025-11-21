@@ -1,12 +1,14 @@
-# tools/context_splitter.py
 import json
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
 
-# Load your LLM
-llm = ChatOllama(model="gpt-oss:120b-cloud")
+llm = ChatOllama(base_url="http://host.docker.internal:11434",model="gpt-oss:120b-cloud")
+import os
+
+base_dir = os.path.dirname(os.path.dirname(__file__))  # backend root
+prompt_path = os.path.join(base_dir, "prompts", "context_splitter_prompt.txt")
 
 def build_context_splitter_tool():
     """
@@ -14,14 +16,11 @@ def build_context_splitter_tool():
     Purpose: Separate background context from the actual question
     """
 
-    # Load prompt from file
-    with open("prompts/context_splitter_prompt.txt", "r", encoding="utf-8") as f:
-        template_text = f.read()
+    with open(prompt_path, "r", encoding="utf-8") as f:
+        prompt_text = f.read()
 
-    # Create prompt template
-    prompt = ChatPromptTemplate.from_template(template_text)
+    prompt = ChatPromptTemplate.from_template(prompt_text)
 
-    # Build chain
     chain = prompt | llm | StrOutputParser()
 
     @tool
@@ -33,7 +32,6 @@ def build_context_splitter_tool():
         print("---------------------------ContextSplitter received input :", user_input)
         result = chain.invoke({"input": user_input})
         try:
-            # Ensure valid JSON output
             parsed = json.loads(result)
         except json.JSONDecodeError:
             parsed = {"background_context": "", "actual_question": ""}
@@ -49,12 +47,3 @@ def build_context_splitter_tool():
     return context_splitter
 
 
-# -----------------------------------
-# Optional standalone test
-# -----------------------------------
-if __name__ == "__main__":
-    splitter_tool = build_context_splitter_tool()
-    test_input = (
-        "I recently read about quantum computing breakthroughs in 2024. Can you explain the key advancements?"
-    )
-    print(splitter_tool.invoke(test_input))
