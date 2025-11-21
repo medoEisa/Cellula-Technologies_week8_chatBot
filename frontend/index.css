@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.bubble-user {
+  @apply bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white;
+}
+
+.bubble-agent {
+  @apply bg-gray-200 text-gray-900;
+}
+
+.input-focus:focus {
+  @apply outline-none ring-2 ring-blue-400;
+}
