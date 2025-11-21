@@ -2,6 +2,9 @@
 
 ## Cellula Chat is a professional, modular AI chat application that with multi-turn conversation experience. It is designed with context-aware ## reasoning, tool-based AI workflows, and a modern, responsive frontend. The system uses FastAPI backend, React frontend, and Docker for easy deployment.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8e5c52c7-4de7-4ca6-97a8-497e21498331" />
+
+
 # Project Features
 
 Multi-turn conversations per user.
