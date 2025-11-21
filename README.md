@@ -1,22 +1,22 @@
 # Cellula Chat – AI-Powered Context-Aware Chat System
 
-## **Cellula Chat is a professional, modular AI chat application that with multi-turn conversation experience. It is designed with context-aware ## reasoning, tool-based AI workflows, and a modern, responsive frontend. The system uses FastAPI backend, React frontend, and Docker for easy deployment.**
+## Cellula Chat is a professional, modular AI chat application that with multi-turn conversation experience. It is designed with context-aware ## reasoning, tool-based AI workflows, and a modern, responsive frontend. The system uses FastAPI backend, React frontend, and Docker for easy deployment.
 
 # Project Features
 
-## **Multi-turn conversations per user.
+Multi-turn conversations per user.
 
-## Context-aware AI responses using modular tools.
+Context-aware AI responses using modular tools.
 
-## Real-time tool usage tracking.
+Real-time tool usage tracking.
 
-## Secure authentication with JWT.
+Secure authentication with JWT.
 
-## Beautiful, animated UI with structured chat bubbles.
+Beautiful, animated UI with structured chat bubbles.
 
-## Responsive layout with message alignment.
+Responsive layout with message alignment.
 
-## Dockerized backend and frontend for seamless deployment.**
+Dockerized backend and frontend for seamless deployment.**
 
 # Frontend
 
@@ -24,9 +24,9 @@
 
 # Key Features:
 
-# User Authentication: Login and Signup with secure token-based sessions.
+ User Authentication: Login and Signup with secure token-based sessions.
 
-# Dynamic Chat Layout:
+ Dynamic Chat Layout:
 
 User messages aligned right, AI responses aligned left.
 
@@ -34,9 +34,9 @@ Shows the tool used by the AI for each response.
 
 Typing Indicator: Animated “Agent is typing...” for realism.
 
-Interactive Buttons: Medium-sized, animated buttons with particle effects.
+Interactive Buttons
 
-Animated Background: Smooth, gradient background with floating bubbles.
+Animated Background: Smooth, gradient background 
 
 Responsive Design: Works on desktop and tablets.
 
@@ -90,13 +90,13 @@ Returns structured JSON:
 
 The AI agent uses four modular tools for context-aware reasoning:
 
-# 1. Context Presence Judge
+## 1. Context Presence Judge
 
 Determines if the input has enough context.
 
 Output: context_provided or context_missing
 
-# 2. Web Search Tool
+## 2. Web Search Tool
 
 Performs web search to fetch additional context when needed.
 
@@ -104,13 +104,13 @@ Cleans and deduplicates data.
 
 Returns structured JSON array of results.
 
-# 3. Context Relevance Checker
+## 3. Context Relevance Checker
 
 Evaluates if retrieved context is relevant to the query.
 
 Output: relevant or irrelevant
 
-# 4. Context Splitter
+## 4. Context Splitter
 
 Separates background context from the actual question for precise AI response.
 
@@ -247,11 +247,12 @@ Extensible: new tools or AI models can be added easily
 # **Final Summary**
 backend is a full autonomous AI system combining:
 
-Component	              Role
-FastAPI  	        Core API layer
-LangChainAgent	    Brain controlling tool usage
-Custom Tools	    Context cleaning, search, logic
-Ollama Model	    LLM reasoning
-MongoDB	Persistent  user + chat storage
-Docker Compose	    Runs everything easily
-React Frontend	    simple-style interface
+Component
+
+FastAPI  
+LangChainAgent   	   
+Custom Tools	     
+Ollama Model	    
+MongoDB	Persistent        
+Docker Compose	     
+React Frontend	      
